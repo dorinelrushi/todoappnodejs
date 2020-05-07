@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  
+    <title>Document</title>
+</head>
+<body>
+    
+    <%- include('header') %>
+
+    <form method="POST" action="/add">
+     <label for="title"></label>
+     <input type="text" id="title" name="title" placeholder="title"class="form-control"><Br>
+     <label for="email"></label>
+     <input type="email" id="email" name="email" placeholder="email" class="form-control"></label><Br>
+     <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+
+
+     <table  class="table">
+         <thead class="thead-dark">
+             <td>Title</td>
+             <td>Email</td>
+             <td>Operation</td>
+         </thead>
+         <% task.forEach(function(item){ %>
+              <tr>
+                  <td> <%= item.title  %></td>
+                  <td><%= item.email %> </td>
+                  <td> <a href="/delete/<%= item._id %>"  class="btn btn-danger">Delete</a>  &nbsp;
+                 <a href="/update/<%= item._id %>" class="btn btn-primary">edit</a></td>
+              </tr>
+         <%}) %> 
+        </table>
+
+
+    
+</body>
+</html>
